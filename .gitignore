@@ -1,0 +1,7 @@
+aws_key*
+terraform.tfstate*
+.terraform*
+.terraform/**
+
+# ignore my notebooks as they are a worse version of textbook
+notebooks/**
