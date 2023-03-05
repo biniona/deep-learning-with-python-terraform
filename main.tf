@@ -6,9 +6,8 @@ provider "aws" {
 resource "aws_instance" "example" {
   
   # EXPENSIVE!!! MAKE SURE YOU DESTROY
-  # Deep Learning AMI (Ubuntu 18.04) Version ??.?
-  # used this guide: https://docs.aws.amazon.com/dlami/latest/devguide/launch.html
-  ami               = "ami-0ea67df30b19db68e"
+  # Deep Learning AMI GPU TensorFlow 2.11.0 (Ubuntu 20.04) 20221220
+  ami               = "ami-0e79f500ea952bab7"
   instance_type          = "g3s.xlarge"
   
   # # free tier testing
@@ -31,7 +30,7 @@ resource "aws_instance" "example" {
       "touch hello.txt",
       "mkdir ssl",
       "cd ssl",
-      "openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout \"cert.key\" -out \"cert.pem\" -batch",
+      "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout \"cert.key\" -out \"cert.pem\" -batch",
       "cd $HOME",
       "sudo pip install keras --upgrade",
       "sudo pip install tensorflow",
